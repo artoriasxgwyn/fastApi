@@ -1,11 +1,7 @@
-# Importaciones de FastAPI para manejar dependencias y excepciones HTTP
-from fastapi import Depends, HTTPException, status
-# HTTPBearer es un esquema de seguridad que extrae el token del header Authorization
-from fastapi.security import HTTPBearer
-# Importamos nuestra función personalizada para validar tokens JWT
-from functions.jwt import validate_token
-# JSONResponse para manejar respuestas HTTP en formato JSON
-from fastapi.responses import JSONResponse
+from fastapi import Depends, HTTPException, status#Importaciones de FastAPI para manejar dependencias y excepciones HTTP
+from fastapi.security import HTTPBearer#HTTPBearer es un esquema de seguridad que extrae el token del header Authorization
+from functions.jwt import validate_token#Importamos nuestra función personalizada para validar tokens JWT
+from fastapi.responses import JSONResponse#JSONResponse para manejar respuestas HTTP en formato JSON
 
 # Crear una instancia de HTTPBearer para extraer tokens de tipo Bearer
 # Esto automáticamente busca el token en el header: Authorization: Bearer <token>

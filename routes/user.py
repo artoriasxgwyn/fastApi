@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Response, Header, Depends #esta la funcion enrutadora de fastapi
 from config.db import conn# esta es la funciona para conectarse
 from models.user import users #Es la tabla
-from schemas.user import User, UserLogin
+from schemas.user import User, UserLogin#Son los modelos de datos con validaciones
 import bcrypt  # Cambio aquí - bcrypt en lugar de Fernet pip install bcrypt
 from starlette.status import HTTP_204_NO_CONTENT
-from functions.jwt import write_token
+from functions.jwt import write_token#funcion para escribir el token
 from functions.dependencies import get_current_user
 
 #datazo cloud clever devuelve las cosultas en tipo objet row asi que toca serializarlo
@@ -33,7 +33,7 @@ def get_users(current_user: dict = Depends(get_current_user)):
 @user.get("/user/{id}")
 def get_user_by_id(id:int):
     try:
-        result = conn.execute(users.select().where(users.c.id == id)).first()#frist() es solo para consultas
+        result = conn.execute(users.select().where(users.c.id == id)).first()#first() es solo para consultas
         #print(result.id)
         user = {
             'user':{
